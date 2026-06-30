@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crypto - Stealth Institutional</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['"Plus Jakarta Sans"', 'sans-serif'],
+            body: ['"IBM Plex Sans"', 'sans-serif'],
+            mono: ['"IBM Plex Mono"', 'monospace'],
+            inter: ['Inter', 'sans-serif'],
+            dmsans: ['"DM Sans"', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<body class="bg-[#09090b] text-zinc-100 font-['Satoshi'] min-h-screen selection:bg-[#10b981] selection:text-zinc-950 overflow-x-hidden relative">
+    <style data-kid="0">
+        @import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap');
+        
+        .font-mono { font-family: 'Geist Mono', monospace; }
+        .font-sans { font-family: 'Satoshi', sans-serif; }
+
+        /* Grain Texture */
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("https://grainy-gradients.vercel.app/noise.svg");
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 100;
+            filter: contrast(120%) brightness(100%);
+        }
+
+        .kinetic-grid {
+            background-image: linear-gradient(to right, rgba(16, 185, 129, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(16, 185, 129, 0.05) 1px, transparent 1px);
+            background-size: 80px 80px;
+        }
+
+        .stealth-gradient {
+            background: radial-gradient(circle at 70% 30%, rgba(16, 185, 129, 0.08) 0%, transparent 60%);
+        }
+
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        .scanline {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(to bottom, transparent, rgba(16, 185, 129, 0.02), transparent);
+            animation: scanline 12s linear infinite;
+            pointer-events: none;
+        }
+
+        .text-glow {
+            text-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+        }
+
+        .split-divider-v {
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, rgba(16, 185, 129, 0.2), transparent);
+        }
+
+        .hover-terminal:hover {
+            box-shadow: inset 0 0 20px rgba(16, 185, 129, 0.05);
+            border-color: rgba(16, 185, 129, 0.3);
+        }
+
+        @keyframes float-subtle {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(10px, -10px); }
+        }
+        .float-subtle { animation: float-subtle 10s ease-in-out infinite; }
+    </style>
+
+    <div class="grain-overlay" data-kid="1"></div>
+
+    
+    <header class="fixed top-0 left-0 w-full z-50 border-b border-zinc-900/50 backdrop-blur-xl bg-[#09090b]/80" data-kid="2">
+        <nav class="max-w-[1600px] mx-auto px-12 h-20 flex items-center justify-between" data-kid="3">
+            <div class="flex items-center gap-20" data-kid="4">
+                <a href="/" class="flex items-center gap-3 group" data-kid="5">
+                    <div class="flex gap-1 items-end h-6" data-kid="6">
+                        <div class="w-1 bg-[#10b981] h-full transition-all group-hover:h-3" data-kid="7"></div>
+                        <div class="w-1 bg-[#10b981] h-4 transition-all group-hover:h-full" data-kid="8"></div>
+                        <div class="w-1 bg-[#10b981] h-full transition-all group-hover:h-5" data-kid="9"></div>
+                    </div>
+                    <span class="text-xl font-black uppercase tracking-tighter" data-kid="10">Cerebro</span>
+                </a>
+                <div class="hidden xl:flex items-center gap-12 font-mono text-[10px] uppercase tracking-[0.4em] text-zinc-500" data-kid="11">
+                    <a href="#" class="hover:text-[#10b981] transition-colors relative group" data-kid="12">
+                        Infrastructure
+                        <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#10b981] transition-all group-hover:w-full" data-kid="13"></span>
+                    </a>
+                    <a href="#" class="hover:text-[#10b981] transition-colors relative group" data-kid="14">
+                        Custody_Vaults
+                        <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#10b981] transition-all group-hover:w-full" data-kid="15"></span>
+                    </a>
+                    <a href="#" class="hover:text-[#10b981] transition-colors relative group" data-kid="16">
+                        Institutional_Alpha
+                        <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#10b981] transition-all group-hover:w-full" data-kid="17"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="flex items-center gap-8" data-kid="18">
+                <div class="hidden md:flex items-center gap-4 text-[10px] font-mono text-zinc-500 bg-zinc-900/40 px-4 py-2 border border-zinc-800 rounded-sm" data-kid="19">
+                    <span class="w-1.5 h-1.5 bg-[#10b981] rounded-full animate-pulse" data-kid="20"></span>
+                    SECURED_CONNECTION_0x8
+                </div>
+                <button class="bg-[#10b981] text-zinc-950 px-6 py-2 text-[10px] font-mono font-black uppercase tracking-[0.2em] hover:bg-white transition-all cursor-pointer" data-kid="21">
+                    Portal_Login
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="relative" data-kid="22">
+        
+        <section class="min-h-[900px] flex relative border-b border-zinc-900 pt-20" data-kid="23">
+            <div class="scanline" data-kid="24"></div>
+            <div class="kinetic-grid absolute inset-0 opacity-20" data-kid="25"></div>
+            
+            
+            <div class="w-full lg:w-[60%] px-12 lg:pl-24 flex flex-col justify-center relative z-10 py-32" data-kid="26">
+                <div class="max-w-4xl" data-kid="27">
+                    <div class="flex items-center gap-6 mb-12" data-kid="28">
+                        <div class="h-[1px] w-24 bg-[#10b981]/30" data-kid="29"></div>
+                        <span class="text-[#10b981] font-mono text-[11px] uppercase tracking-[0.5em]" data-kid="30">Global Stealth Institutional Layer</span>
+                    </div>
+                    
+                    <h1 class="text-[clamp(4rem,12vw,10rem)] font-black leading-[0.8] tracking-tighter uppercase mb-16 relative" data-kid="31">
+                        <span class="block" data-kid="32">Institutional</span>
+                        <span class="block text-[#10b981] text-glow relative ml-20 lg:ml-40" data-kid="33">Precision.</span>
+                        <span class="block text-zinc-800/50 absolute -top-10 left-10 lg:left-20 -z-10 select-none" data-kid="34">PRECISION</span>
+                    </h1>
+                    
+                    <div class="flex flex-col lg:flex-row gap-16 items-start lg:items-end" data-kid="35">
+                        <div class="flex-1 space-y-10" data-kid="36">
+                            <p class="text-xl text-zinc-400 font-medium leading-relaxed max-w-md border-l-2 border-[#10b981]/20 pl-10" data-kid="37">
+                                Vanguard Protocol provides algorithmically shielded execution for the world's most demanding digital asset managers. Built on Cerebro’s air-gapped custody framework.
+                            </p>
+                            <div class="flex items-center gap-8" data-kid="38">
+                                <button class="group bg-zinc-100 text-zinc-950 px-12 py-6 font-black uppercase text-sm tracking-widest hover:bg-[#10b981] transition-all flex items-center gap-4 cursor-pointer" data-kid="39">
+                                    Initiate_Secure_Access
+                                    <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-kid="40"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3" data-kid="41"></path></svg>
+                                </button>
+                                <div class="hidden sm:block" data-kid="42">
+                                    <span class="text-[9px] font-mono text-zinc-600 uppercase block mb-1" data-kid="43">Status_Check</span>
+                                    <span class="text-[#10b981] font-mono text-xs" data-kid="44">V.4.2_READY</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="lg:mb-2 text-right" data-kid="45">
+                            <div class="text-[clamp(3rem,8vw,5rem)] font-black text-[#10b981] leading-none tracking-tighter" data-kid="46">+14.28%</div>
+                            <div class="text-[10px] font-mono text-zinc-500 uppercase tracking-[0.4em] mt-2" data-kid="47">Yield_Alpha_Differential</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="hidden lg:flex lg:w-[40%] relative border-l border-zinc-900 bg-zinc-900/10 items-center justify-center overflow-hidden" data-kid="48">
+                <div class="absolute inset-0 stealth-gradient" data-kid="49"></div>
+                
+                
+                <div class="relative w-full aspect-square max-w-lg scale-110" data-kid="50">
+                    
+                    <div class="absolute inset-0 border-[2px] border-[#10b981]/5 rounded-full animate-[spin_40s_linear_infinite]" data-kid="51"></div>
+                    <div class="absolute inset-12 border border-[#10b981]/10 rounded-full animate-[spin_25s_linear_infinite_reverse]" data-kid="52"></div>
+                    <div class="absolute inset-24 border border-zinc-800 rounded-full" data-kid="53"></div>
+                    
+                    
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center z-20" data-kid="54">
+                        <div class="font-mono text-zinc-800 text-[10px] mb-4 tracking-[1em] uppercase" data-kid="55">Vanguard_Core</div>
+                        <div class="w-40 h-[2px] bg-gradient-to-r from-transparent via-[#10b981]/40 to-transparent mb-4 mx-auto" data-kid="56"></div>
+                        <div class="text-[120px] font-black text-white/5 tracking-tighter leading-none select-none" data-kid="57">ALPHA</div>
+                    </div>
+
+                    
+                    <div class="absolute top-20 right-10 p-4 border border-zinc-800 bg-zinc-950/90 backdrop-blur-md float-subtle" data-kid="58">
+                        <div class="text-[9px] font-mono text-zinc-600 uppercase mb-2" data-kid="59">AUM_Vaults</div>
+                        <div class="text-xl font-black text-zinc-100" data-kid="60">$4,821,040,000</div>
+                    </div>
+
+                    <div class="absolute bottom-20 left-0 p-4 border border-zinc-800 bg-zinc-950/90 backdrop-blur-md animate-[float-subtle_12s_ease-in-out_infinite_reverse]" data-kid="61">
+                        <div class="text-[9px] font-mono text-zinc-600 uppercase mb-2" data-kid="62">Network_Throughput</div>
+                        <div class="text-xl font-black text-[#10b981]" data-kid="63">0.0012ms</div>
+                    </div>
+                </div>
+                
+                
+                <video src="https://videos.pexels.com/video-files/18977071/18977071-sd_640_360_30fps.mp4" poster="https://images.pexels.com/videos/18977071/quarter-dollar-closeup-rotating-on-dark-background-18977071.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1000&w=1000" autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-10 mix-blend-overlay" data-kid="64">
+                </video>
+            </div>
+        </section>
+
+        
+        <div class="bg-[#0b0b0d] border-b border-zinc-900 py-4 flex items-center gap-20 overflow-hidden relative" data-kid="65">
+            <div class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#0b0b0d] to-transparent z-10" data-kid="66"></div>
+            <div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#0b0b0d] to-transparent z-10" data-kid="67"></div>
+            
+            <div class="flex animate-[scroll_50s_linear_infinite] gap-20 items-center whitespace-nowrap px-10" data-kid="68">
+                <div class="flex items-center gap-4 group" data-kid="69">
+                    <span class="text-zinc-700 font-mono text-[10px]" data-kid="70">CEREBRO_AUDIT:</span>
+                    <span class="text-zinc-400 font-mono text-xs" data-kid="71">HASH_0x7...9F2</span>
+                    <span class="text-[#10b981] font-mono text-xs" data-kid="72">VERIFIED_STABLE</span>
+                </div>
+                <div class="flex items-center gap-4 group" data-kid="73">
+                    <span class="text-zinc-700 font-mono text-[10px]" data-kid="74">VANGUARD_PROTOCOL:</span>
+                    <span class="text-zinc-400 font-mono text-xs" data-kid="75">ALPHA_DELTA:</span>
+                    <span class="text-[#10b981] font-mono text-xs" data-kid="76">+14.28%</span>
+                </div>
+                <div class="flex items-center gap-4 group" data-kid="77">
+                    <span class="text-zinc-700 font-mono text-[10px]" data-kid="78">GLOBAL_LIQUIDITY:</span>
+                    <span class="text-zinc-400 font-mono text-xs" data-kid="79">INST_DEPTH:</span>
+                    <span class="text-zinc-100 font-mono text-xs" data-kid="80">$822M+</span>
+                </div>
+                
+                <div class="flex items-center gap-4 group" data-kid="81">
+                    <span class="text-zinc-700 font-mono text-[10px]" data-kid="82">CEREBRO_AUDIT:</span>
+                    <span class="text-zinc-400 font-mono text-xs" data-kid="83">HASH_0x7...9F2</span>
+                    <span class="text-[#10b981] font-mono text-xs" data-kid="84">VERIFIED_STABLE</span>
+                </div>
+                <div class="flex items-center gap-4 group" data-kid="85">
+                    <span class="text-zinc-700 font-mono text-[10px]" data-kid="86">VANGUARD_PROTOCOL:</span>
+                    <span class="text-zinc-400 font-mono text-xs" data-kid="87">ALPHA_DELTA:</span>
+                    <span class="text-[#10b981] font-mono text-xs" data-kid="88">+14.28%</span>
+                </div>
+            </div>
+        </div>
+
+        <style data-kid="89">
+            @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+        </style>
+
+        
+        <section class="py-40 px-12 lg:px-24" data-kid="90">
+            <div class="max-w-[1600px] mx-auto" data-kid="91">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-24 mb-40" data-kid="92">
+                    <div class="lg:col-span-8" data-kid="93">
+                        <div class="flex items-center gap-4 mb-8" data-kid="94">
+                            <span class="text-[#10b981] font-mono text-[10px] uppercase tracking-[0.6em]" data-kid="95">Modular Architecture</span>
+                            <div class="h-[1px] flex-1 bg-zinc-900" data-kid="96"></div>
+                        </div>
+                        <h2 class="text-6xl lg:text-9xl font-black uppercase tracking-tighter leading-[0.85] mb-12" data-kid="97">
+                            The Silent<br data-kid="98"><span class="text-[#10b981]" data-kid="99">Advantage.</span>
+                        </h2>
+                    </div>
+                    <div class="lg:col-span-4 lg:pt-32" data-kid="100">
+                        <p class="text-zinc-500 text-lg leading-relaxed border-l border-zinc-800 pl-10" data-kid="101">
+                            Cerebro Custody provides the impenetrable base, while Vanguard Protocol drives the aggressive execution layer. A binary system built for institutional dominance.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="space-y-0 relative border-t border-zinc-900" data-kid="102">
+                    
+                    <div class="group py-20 border-b border-zinc-900 hover:bg-zinc-900/10 transition-all duration-700 relative overflow-hidden cursor-pointer" data-kid="103">
+                        <div class="absolute left-0 top-0 bottom-0 w-0 group-hover:w-2 bg-[#10b981] transition-all duration-500" data-kid="104"></div>
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center px-8" data-kid="105">
+                            <div class="md:col-span-1" data-kid="106">
+                                <div class="text-xs font-mono text-zinc-700 group-hover:text-[#10b981]" data-kid="107">P_01</div>
+                            </div>
+                            <div class="md:col-span-4" data-kid="108">
+                                <h3 class="text-4xl font-black uppercase tracking-tight group-hover:translate-x-6 transition-transform duration-500" data-kid="109">Stealth Execution</h3>
+                                <div class="text-[10px] font-mono text-[#10b981] mt-2 opacity-0 group-hover:opacity-100 transition-opacity" data-kid="110">VANGUARD_CORE_ENGINE</div>
+                            </div>
+                            <div class="md:col-span-5" data-kid="111">
+                                <p class="text-zinc-500 text-sm leading-relaxed max-w-sm" data-kid="112">
+                                    Fragmented orders across private dark pools and Tier-1 liquidity providers to eliminate front-running and slippage.
+                                </p>
+                            </div>
+                            <div class="md:col-span-2 flex justify-end" data-kid="113">
+                                <div class="w-16 h-16 rounded-full border border-zinc-800 flex items-center justify-center group-hover:bg-[#10b981] group-hover:border-[#10b981] transition-all duration-500 rotate-[-45deg] group-hover:rotate-0" data-kid="114">
+                                    <svg class="w-7 h-7 text-zinc-700 group-hover:text-zinc-950" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-kid="115"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" data-kid="116"></path></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="group py-20 border-b border-zinc-900 hover:bg-zinc-900/10 transition-all duration-700 relative overflow-hidden cursor-pointer" data-kid="117">
+                        <div class="absolute left-0 top-0 bottom-0 w-0 group-hover:w-2 bg-[#10b981] transition-all duration-500" data-kid="118"></div>
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center px-8" data-kid="119">
+                            <div class="md:col-span-1" data-kid="120">
+                                <div class="text-xs font-mono text-zinc-700 group-hover:text-[#10b981]" data-kid="121">P_02</div>
+                            </div>
+                            <div class="md:col-span-4" data-kid="122">
+                                <h3 class="text-4xl font-black uppercase tracking-tight group-hover:translate-x-6 transition-transform duration-500" data-kid="123">Shard Vaulting</h3>
+                                <div class="text-[10px] font-mono text-[#10b981] mt-2 opacity-0 group-hover:opacity-100 transition-opacity" data-kid="124">CEREBRO_SECURE_LAYER</div>
+                            </div>
+                            <div class="md:col-span-5" data-kid="125">
+                                <p class="text-zinc-500 text-sm leading-relaxed max-w-sm" data-kid="126">
+                                    Multi-Party Computation distributed across air-gapped nodes. Private keys never exist in full, even during signing.
+                                </p>
+                            </div>
+                            <div class="md:col-span-2 flex justify-end" data-kid="127">
+                                <div class="w-16 h-16 rounded-full border border-zinc-800 flex items-center justify-center group-hover:bg-[#10b981] group-hover:border-[#10b981] transition-all duration-500 rotate-[-45deg] group-hover:rotate-0" data-kid="128">
+                                    <svg class="w-7 h-7 text-zinc-700 group-hover:text-zinc-950" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-kid="129"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" data-kid="130"></path></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="group py-20 border-b border-zinc-900 hover:bg-zinc-900/10 transition-all duration-700 relative overflow-hidden cursor-pointer" data-kid="131">
+                        <div class="absolute left-0 top-0 bottom-0 w-0 group-hover:w-2 bg-[#10b981] transition-all duration-500" data-kid="132"></div>
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center px-8" data-kid="133">
+                            <div class="md:col-span-1" data-kid="134">
+                                <div class="text-xs font-mono text-zinc-700 group-hover:text-[#10b981]" data-kid="135">P_03</div>
+                            </div>
+                            <div class="md:col-span-4" data-kid="136">
+                                <h3 class="text-4xl font-black uppercase tracking-tight group-hover:translate-x-6 transition-transform duration-500" data-kid="137">Real-Time Delta</h3>
+                                <div class="text-[10px] font-mono text-[#10b981] mt-2 opacity-0 group-hover:opacity-100 transition-opacity" data-kid="138">QUANT_ANALYTICS_V1</div>
+                            </div>
+                            <div class="md:col-span-5" data-kid="139">
+                                <p class="text-zinc-500 text-sm leading-relaxed max-w-sm" data-kid="140">
+                                    Live audit trails and performance metrics visible through a dedicated Bloomberg-grade institutional terminal.
+                                </p>
+                            </div>
+                            <div class="md:col-span-2 flex justify-end" data-kid="141">
+                                <div class="w-16 h-16 rounded-full border border-zinc-800 flex items-center justify-center group-hover:bg-[#10b981] group-hover:border-[#10b981] transition-all duration-500 rotate-[-45deg] group-hover:rotate-0" data-kid="142">
+                                    <svg class="w-7 h-7 text-zinc-700 group-hover:text-zinc-950" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-kid="143"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" data-kid="144"></path></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="py-40 bg-zinc-950 relative border-y border-zinc-900" data-kid="145">
+            <div class="max-w-[1600px] mx-auto px-12 lg:px-24" data-kid="146">
+                <div class="grid grid-cols-1 xl:grid-cols-2 gap-32" data-kid="147">
+                    
+                    <div class="space-y-12" data-kid="148">
+                        <div class="border border-zinc-800 bg-[#09090b] p-12 relative overflow-hidden hover-terminal transition-all duration-500 group" data-kid="149">
+                            <div class="flex justify-between items-start mb-16" data-kid="150">
+                                <div class="space-y-2" data-kid="151">
+                                    <div class="text-[10px] font-mono text-[#10b981] uppercase tracking-[0.5em]" data-kid="152">System_Integrity</div>
+                                    <div class="text-xs font-mono text-zinc-600" data-kid="153">NODE_STATUS: STABLE</div>
+                                </div>
+                                <div class="w-12 h-12 flex items-center justify-center border border-zinc-800" data-kid="154">
+                                    <div class="w-2 h-2 bg-[#10b981] animate-pulse" data-kid="155"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-12" data-kid="156">
+                                <div class="space-y-4" data-kid="157">
+                                    <span class="text-[10px] font-mono text-zinc-600 uppercase" data-kid="158">Uptime_Metric</span>
+                                    <div class="text-6xl font-black text-white group-hover:text-[#10b981] transition-colors" data-kid="159">100.00%</div>
+                                </div>
+                                <div class="space-y-4" data-kid="160">
+                                    <span class="text-[10px] font-mono text-zinc-600 uppercase" data-kid="161">Latency_P99</span>
+                                    <div class="text-6xl font-black text-white group-hover:text-[#10b981] transition-colors" data-kid="162">0.02<span class="text-xl" data-kid="163">ms</span></div>
+                                </div>
+                                <div class="space-y-4" data-kid="164">
+                                    <span class="text-[10px] font-mono text-zinc-600 uppercase" data-kid="165">AUM_Protected</span>
+                                    <div class="text-6xl font-black text-white group-hover:text-[#10b981] transition-colors" data-kid="166">$4.8<span class="text-xl" data-kid="167">B</span></div>
+                                </div>
+                                <div class="space-y-4" data-kid="168">
+                                    <span class="text-[10px] font-mono text-zinc-600 uppercase" data-kid="169">Organic_Alpha</span>
+                                    <div class="text-6xl font-black text-[#10b981]" data-kid="170">+14.28%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="flex flex-col justify-center" data-kid="171">
+                        <span class="text-[#10b981] font-mono text-[10px] uppercase tracking-[0.8em] mb-10 block" data-kid="172">Trust & Verification</span>
+                        <h2 class="text-6xl font-black uppercase tracking-tighter leading-tight mb-12" data-kid="173">
+                            Validated by the<br data-kid="174">Silent Elite.
+                        </h2>
+                        <div class="space-y-10" data-kid="175">
+                            <p class="text-zinc-500 text-lg leading-relaxed max-w-lg border-l border-[#10b981]/40 pl-10" data-kid="176">
+                                Cerebro Custody is audit-ready 24/7/365. We provide institutional clients with sovereign control over their assets through a strictly private infrastructure.
+                            </p>
+                            <div class="grid grid-cols-2 gap-8 text-[11px] font-mono text-zinc-600 uppercase" data-kid="177">
+                                <div class="flex items-center gap-4" data-kid="178"><div class="w-1.5 h-1.5 bg-[#10b981]" data-kid="179"></div> ISO 27001 Certified</div>
+                                <div class="flex items-center gap-4" data-kid="180"><div class="w-1.5 h-1.5 bg-[#10b981]" data-kid="181"></div> SOC2 Type II</div>
+                                <div class="flex items-center gap-4" data-kid="182"><div class="w-1.5 h-1.5 bg-[#10b981]" data-kid="183"></div> Quantum-Hardened</div>
+                                <div class="flex items-center gap-4" data-kid="184"><div class="w-1.5 h-1.5 bg-[#10b981]" data-kid="185"></div> Zero-Knowledge Proof</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="py-60 px-12 relative" data-kid="186">
+            <div class="kinetic-grid absolute inset-0 opacity-10" data-kid="187"></div>
+            <div class="max-w-6xl mx-auto relative z-10 text-center" data-kid="188">
+                <div class="inline-flex items-center gap-4 px-6 py-2 border border-[#10b981]/20 bg-[#10b981]/5 rounded-full mb-12" data-kid="189">
+                    <span class="w-2 h-2 bg-[#10b981] rounded-full animate-pulse" data-kid="190"></span>
+                    <span class="text-[10px] font-mono text-[#10b981] uppercase tracking-widest" data-kid="191">Limited Intake Phase_02</span>
+                </div>
+                <h2 class="text-[clamp(4rem,10vw,8rem)] font-black uppercase tracking-tighter leading-none mb-16" data-kid="192">
+                    Request Terminal<br data-kid="193"><span class="text-[#10b981]" data-kid="194">Clearance.</span>
+                </h2>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-8" data-kid="195">
+                    <button class="w-full sm:w-auto bg-[#10b981] text-zinc-950 px-16 py-8 font-black uppercase text-sm tracking-[0.3em] hover:scale-105 transition-all cursor-pointer" data-kid="196">
+                        Apply_for_Onboarding
+                    </button>
+                    <button class="w-full sm:w-auto px-16 py-8 border border-zinc-800 bg-[#09090b]/50 backdrop-blur-md text-white font-black uppercase text-sm tracking-[0.3em] hover:bg-white hover:text-zinc-950 transition-all cursor-pointer" data-kid="197">
+                        Contact_Sales
+                    </button>
+                </div>
+                <div class="mt-16 text-[10px] font-mono text-zinc-600 uppercase tracking-widest" data-kid="198">
+                    Available for Tier-1 Institutions, Hedge Funds, and Family Offices Only.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    
+    <footer class="bg-[#070708] border-t border-zinc-900 py-32 px-12 lg:px-24 relative overflow-hidden" data-kid="199">
+        <div class="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-24 relative z-10" data-kid="200">
+            <div class="lg:col-span-5 space-y-12" data-kid="201">
+                <a href="/" class="flex items-center gap-3" data-kid="202">
+                    <div class="w-1.5 h-8 bg-[#10b981]" data-kid="203"></div>
+                    <span class="text-2xl font-black uppercase tracking-tighter" data-kid="204">Cerebro</span>
+                </a>
+                <p class="text-zinc-500 text-sm font-mono leading-relaxed max-w-sm" data-kid="205">
+                    High-fidelity digital asset infrastructure for the silent elite. Powered by Vanguard Protocol execution and Cerebro air-gapped custody.
+                </p>
+                <div class="flex gap-10 font-mono text-[10px] text-zinc-700 uppercase tracking-widest" data-kid="206">
+                    <a href="#" class="hover:text-[#10b981] transition-colors" data-kid="207">Twitter_X</a>
+                    <a href="#" class="hover:text-[#10b981] transition-colors" data-kid="208">LinkedIn</a>
+                    <a href="#" class="hover:text-[#10b981] transition-colors" data-kid="209">Telegram</a>
+                </div>
+            </div>
+            
+            <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-16" data-kid="210">
+                <div class="space-y-8" data-kid="211">
+                    <h4 class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest border-b border-zinc-900 pb-4" data-kid="212">Infrastructure</h4>
+                    <ul class="space-y-4 font-mono text-[11px] text-zinc-600" data-kid="213">
+                        <li data-kid="214"><a href="#" class="hover:text-white transition-colors" data-kid="215">Vanguard_Execution</a></li>
+                        <li data-kid="216"><a href="#" class="hover:text-white transition-colors" data-kid="217">MPC_Shard_Vaults</a></li>
+                        <li data-kid="218"><a href="#" class="hover:text-white transition-colors" data-kid="219">Liquidity_Nodes</a></li>
+                        <li data-kid="220"><a href="#" class="hover:text-white transition-colors" data-kid="221">Audit_Reports</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-8" data-kid="222">
+                    <h4 class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest border-b border-zinc-900 pb-4" data-kid="223">Governance</h4>
+                    <ul class="space-y-4 font-mono text-[11px] text-zinc-600" data-kid="224">
+                        <li data-kid="225"><a href="#" class="hover:text-white transition-colors" data-kid="226">Privacy_Layer</a></li>
+                        <li data-kid="227"><a href="#" class="hover:text-white transition-colors" data-kid="228">Risk_Engine</a></li>
+                        <li data-kid="229"><a href="#" class="hover:text-white transition-colors" data-kid="230">Compliance_Core</a></li>
+                        <li data-kid="231"><a href="#" class="hover:text-white transition-colors" data-kid="232">Institutional_Terms</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-8" data-kid="233">
+                    <h4 class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest border-b border-zinc-900 pb-4" data-kid="234">Terminal</h4>
+                    <ul class="space-y-4 font-mono text-[11px] text-zinc-600" data-kid="235">
+                        <li data-kid="236"><a href="#" class="hover:text-white transition-colors" data-kid="237">API_Reference</a></li>
+                        <li data-kid="238"><a href="#" class="hover:text-white transition-colors" data-kid="239">Latency_Specs</a></li>
+                        <li data-kid="240"><a href="#" class="hover:text-white transition-colors" data-kid="241">Support_Console</a></li>
+                        <li data-kid="242"><a href="#" class="hover:text-white transition-colors" data-kid="243">System_Status</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-[1600px] mx-auto mt-40 pt-12 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-12 font-mono text-[10px] text-zinc-800 tracking-[0.2em] uppercase" data-kid="244">
+            <span data-kid="245">&copy; 2026 Stealth Infrastructure Group Ltd.</span>
+            <div class="flex gap-12" data-kid="246">
+                <span class="text-[#10b981]" data-kid="247">SYSTEM_HEALTH: NOMINAL</span>
+                <span data-kid="248">SECURED_BY_AES_256</span>
+                <span data-kid="249">GLOBAL_OPS: ACTIVE</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+</body>
+</html>
